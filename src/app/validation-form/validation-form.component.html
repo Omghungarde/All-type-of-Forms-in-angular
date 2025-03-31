@@ -1,0 +1,33 @@
+<h1>Form Grouping</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="onsubmit()">
+  <div class="mb-3">
+    <label class="form-label">First Name</label><br>
+    <span *ngIf="first?.hasError('required')">Required</span>
+    <span *ngIf="first?.invalid && (first?.dirty || first?.touched
+    )"> Please Enter Username</span>
+    <input type="firstname" class="form-control" formControlName ="first">
+    <div class="mb-3">
+      <label  class="form-label">Last Name</label><br>
+      <span *ngIf="last?.hasError('required')">Required</span>
+      <span *ngIf="last?.invalid && (last?.dirty || last?.touched
+      )"> Please Enter Last name</span>
+      <input type="lastname" class="form-control" formControlName="last" >
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Email</label><br>
+      <span *ngIf="emailaddress?.hasError('required')">Required</span>
+      <span *ngIf="emailaddress?.invalid && (emailaddress?.dirty || emailaddress?.touched
+      )"> Please Enter Email</span>
+      <input type="email" class="form-control" formControlName="emailaddress">
+    </div>
+    <button class="btn btn-primary">Submit</button>
+    <!-- <button (click)="setValue()" type="button"  class="btn btn-primary" style="margin-left: 30px;">Set Value</button> -->
+  </div>
+ 
+</form>
+
+<h1>Details of Employee</h1>
+<h4>First Name:-{{this.profileForm.value.first}}</h4>
+<h4>Last Name:-{{this.profileForm.value.last}}</h4>
+<h4>Email address:-{{this.profileForm.value.emailaddress}}</h4>
